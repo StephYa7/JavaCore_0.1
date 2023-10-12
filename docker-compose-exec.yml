@@ -1,0 +1,6 @@
+services:
+app:
+image: bellsoft/liberica-openjdk-alpine:11.0.16.1-1
+command: java -classpath /app/out st.example.Main
+volumes:
+  - ./bin:/app/out
