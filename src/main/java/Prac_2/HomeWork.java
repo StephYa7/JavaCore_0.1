@@ -1,6 +1,5 @@
 package Prac_2;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class HomeWork {
