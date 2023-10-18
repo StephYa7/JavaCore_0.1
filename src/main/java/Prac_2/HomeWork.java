@@ -9,21 +9,21 @@ public class HomeWork {
 
         System.out.println(countEvens(a));
         System.out.println(countEvens(b));
-        System.out.println(MaxMinDifference(a));
-        System.out.println(MaxMinDifference(b));
-        System.out.println(TwoZeroNeighbors(a));
-        System.out.println(TwoZeroNeighbors(b));
+        System.out.println(maxMinDifference(a));
+        System.out.println(maxMinDifference(b));
+        System.out.println(twoZeroNeighbors(a));
+        System.out.println(twoZeroNeighbors(b));
     }
 
     public static long countEvens(int[] array) {
         return Arrays.stream(array).filter(i -> i % 2 == 0).count();
     }
 
-    public static int MaxMinDifference(int[] array) {
+    public static int maxMinDifference(int[] array) {
         return Arrays.stream(array).max().getAsInt() - Arrays.stream(array).min().getAsInt();
     }
 
-    public static boolean TwoZeroNeighbors(int[] array) {
+    public static boolean twoZeroNeighbors(int[] array) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 0 && array[i + 1] == 0) {
                 return true;
