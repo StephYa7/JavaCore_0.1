@@ -15,14 +15,8 @@ public class HomeWork {
         System.out.println(TwoZeroNeighbors(b));
     }
 
-    public static int countEvens(int[] array) {
-        int result = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (i % 2 == 0) {
-                result += array[i];
-            }
-        }
-        return result;
+    public static long countEvens(int[] array) {
+        return Arrays.stream(array).filter(i -> i % 2 == 0).count();
     }
 
     public static int MaxMinDifference(int[] array) {
