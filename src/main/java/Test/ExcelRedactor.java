@@ -7,7 +7,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.*;
 
 
-public class Test {
+public class ExcelRedactor {
     public static void main(String[] args) throws IOException, InvalidFormatException {
         File file = new File("src/main/java/Test/1.xlsx");
         File file3 = new File("src/main/java/Test/3.xlsx");

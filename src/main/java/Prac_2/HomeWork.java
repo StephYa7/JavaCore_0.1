@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class HomeWork {
     public static void main(String[] args) {
-        int[] a = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] a = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
         int[] b = new int[]{1, 0, 2, 3, 4, 5, 6, 0, 0, 7, 8, 9};
 
         System.out.println(countEvens(a));
@@ -24,8 +24,8 @@ public class HomeWork {
     }
 
     public static boolean twoZeroNeighbors(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == 0 && array[i + 1] == 0) {
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] == 0 && array[i - 1] == 0) {
                 return true;
             }
         }
