@@ -35,18 +35,18 @@ public class Main {
                         "1", "1");
             } catch (BuyerException e) {
                 System.out.println("Неверно указан покупатель");
-                ;
             } catch (ProductException e) {
                 System.out.println("Неверно указан товар");
             }
         }
-        System.out.printf("Совершено %d покупок.",Main.orders.size());
+        System.out.printf("Совершено %d покупок.", Main.orders.size());
 
     }
 
     public static Order purchase(String nameBuyer, String phoneBuyer,
                                  String ageBuyer, String productName,
-                                 String productPrice, String countProduct) throws ProductException, BuyerException {
+                                 String productPrice, String countProduct
+                                 ) throws ProductException, BuyerException {
         Buyer bufferBuyer = new Buyer(nameBuyer, Integer.parseInt(ageBuyer), phoneBuyer);
         Product bufferProduct = new Product(productName, Integer.parseInt(productPrice));
         int countProductInStore = 0;
