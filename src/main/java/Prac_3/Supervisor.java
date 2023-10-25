@@ -9,9 +9,10 @@ public class Supervisor extends Employee {
     public static void upSalary(Employee[] list, int age, int salaryRise) {
         for (Employee employee : list) {
             if (!(employee instanceof Supervisor)) {
-            if (employee.getAge() >= age) {
-                employee.setSalary(employee.getSalary() + salaryRise);
+                if (employee.getAge() >= age) {
+                    employee.setSalary(employee.getSalary() + salaryRise);
+                }
             }
-        }}
+        }
     }
 }
