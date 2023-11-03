@@ -54,7 +54,8 @@ class Student {
     }
 
     public static List<Double> randomGrade() {
-        List<Double> result = new Random().doubles(3, 5.5)
+        List<Double> result = new Random()
+                .doubles(3, 5.5)
                 .limit(10)
                 .map(i -> Math.round(i * 10.0) / 10.0)
                 .boxed()
