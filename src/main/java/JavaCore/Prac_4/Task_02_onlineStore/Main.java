@@ -1,4 +1,4 @@
-package Prac_4.Task_02_onlineStore;
+package JavaCore.Prac_4.Task_02_onlineStore;
 
 import java.util.ArrayList;
 import java.util.List;

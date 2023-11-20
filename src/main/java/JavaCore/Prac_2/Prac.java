@@ -1,4 +1,4 @@
-package Prac_2;
+package JavaCore.Prac_2;
 
 import java.util.Arrays;
 

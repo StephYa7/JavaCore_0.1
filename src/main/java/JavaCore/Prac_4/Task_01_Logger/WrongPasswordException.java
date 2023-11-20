@@ -1,4 +1,4 @@
-package Prac_4.Task_01_Logger;
+package JavaCore.Prac_4.Task_01_Logger;
 
 public class WrongPasswordException extends Exception {
     public WrongPasswordException(String message) {

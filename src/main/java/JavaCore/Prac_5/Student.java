@@ -1,4 +1,4 @@
-package Prac_5;
+package JavaCore.Prac_5;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

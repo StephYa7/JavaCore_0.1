@@ -1,8 +1,8 @@
-package Prac_4;
+package JavaCore.Prac_4;
 
-import Prac_4.Task_01_Logger.WrongLoginException;
-import Prac_4.Task_01_Logger.WrongPasswordException;
-import Prac_4.Task_01_Logger.logger;
+import JavaCore.Prac_4.Task_01_Logger.WrongLoginException;
+import JavaCore.Prac_4.Task_01_Logger.WrongPasswordException;
+import JavaCore.Prac_4.Task_01_Logger.logger;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Prac_3;
+package JavaCore.Prac_3;
 
 public class Supervisor extends Employee {
 
