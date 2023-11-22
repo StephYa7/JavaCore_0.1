@@ -1,4 +1,4 @@
-package JDK.Prac_01;
+package JDK.Prac_01.XOWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,7 +6,7 @@ import java.awt.*;
 public class GameWindow extends JFrame {
     private static final int WINDOW_HEIGHT = 555;
     public static final int WINDOW_WIDTH = 507;
-    public static final int WINDOW_POSX = 2880;
+    public static final int WINDOW_POSX = 2900;
     public static final int WINDOW_POSY = 200;
 
     JButton btnNewGame = new JButton("New Game");
@@ -24,7 +24,6 @@ public class GameWindow extends JFrame {
 
         this.map = new Map();
 
-        settings = new SettingsWindow(this);
 
         btnExit.addActionListener(e -> {
             System.exit(0);
@@ -41,6 +40,7 @@ public class GameWindow extends JFrame {
         add(panBottom, BorderLayout.SOUTH);
         add(map);
         setVisible(true);
+        settings = new SettingsWindow(this);
 
     }
 

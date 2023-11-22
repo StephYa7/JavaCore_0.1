@@ -1,4 +1,4 @@
-package JDK.Prac_01;
+package JDK.Prac_01.XOWindow;
 
 public class Main {
     public static void main(String[] args) {

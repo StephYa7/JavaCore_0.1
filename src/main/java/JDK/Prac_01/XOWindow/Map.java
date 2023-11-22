@@ -1,4 +1,4 @@
-package JDK.Prac_01;
+package JDK.Prac_01.XOWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,11 +18,12 @@ public class Map extends JPanel {
     private static final String MSG_WIN_HUMAN = "Победил игрок!";
     private static final String MSG_WIN_AI = "Победил компьютер!";
     private static final String MSG_DRAW = "Ничья!";
+    private final int EMPTY_DOT = 0;
     private final int HUMAN_DOT = 1;
     private final int AI_DOT = 2;
-    private final int EMPTY_DOT = 0;
     private int fieldSizeX;
     private int fieldSizeY;
+    private int winLength;
     private char[][] field;
 
 
@@ -45,9 +46,18 @@ public class Map extends JPanel {
         });
     }
 
+    void startNewGame(int mode, int fSzX, int fSzY, int wLen) {
+        fieldSizeX = fSzX;
+        fieldSizeY = fSzY;
+        winLength = wLen;
+
+        initMap();
+        isGameOver = false;
+        isInitialized = true;
+        repaint();
+    }
+
     private void initMap() {
-        fieldSizeX = 3;
-        fieldSizeY = 3;
         field = new char[fieldSizeY][fieldSizeX];
         for (int i = 0; i < fieldSizeX; i++) {
             for (int j = 0; j < fieldSizeY; j++) {
@@ -87,7 +97,6 @@ public class Map extends JPanel {
     }
 
 
-
     private boolean checkEndGame(int dot, int gameOverType) {
         if (checkWin(dot)) {
             this.gameOverType = gameOverType;
@@ -105,17 +114,6 @@ public class Map extends JPanel {
         return false;
     }
 
-    void startNewGame(int mode, int fSzX, int fSzY, int wLen) {
-
-
-        System.out.printf("Mode: %d;\nSize: x=$d, y=$d;\nWin Length: %d",
-                mode, fSzX, fSzY, wLen);
-        initMap();
-        isGameOver = false;
-        isInitialized = true;
-        repaint();
-    }
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -128,14 +126,14 @@ public class Map extends JPanel {
 
         panelWidth = getWidth();
         panelHeight = getHeight();
-        cellHeight = panelHeight / 3;
-        cellWeight = panelWidth / 3;
+        cellHeight = panelHeight / fieldSizeX;
+        cellWeight = panelWidth / fieldSizeY;
         g.setColor(Color.BLACK);
-        for (int h = 0; h < 3; h++) {
+        for (int h = 0; h < fieldSizeX; h++) {
             int y = h * cellHeight;
             g.drawLine(0, y, panelWidth, y);
         }
-        for (int w = 0; w < 3; w++) {
+        for (int w = 0; w < fieldSizeY; w++) {
             int x = w * cellWeight;
             g.drawLine(x, 0, x, panelHeight);
         }
@@ -185,20 +183,6 @@ public class Map extends JPanel {
         }
     }
 
-    private boolean checkWin(int c) {
-        if (field[0][0] == c && field[0][1] == c && field[0][2] == c) return true;
-        if (field[1][0] == c && field[1][1] == c && field[1][2] == c) return true;
-        if (field[2][0] == c && field[2][1] == c && field[2][2] == c) return true;
-
-        if (field[0][0] == c && field[1][0] == c && field[2][0] == c) return true;
-        if (field[0][1] == c && field[1][1] == c && field[2][1] == c) return true;
-        if (field[0][2] == c && field[1][2] == c && field[2][2] == c) return true;
-
-        if (field[0][0] == c && field[1][1] == c && field[2][2] == c) return true;
-        if (field[0][2] == c && field[1][1] == c && field[2][0] == c) return true;
-        return false;
-    }
-
     private boolean isMapFull() {
         for (int i = 0; i < fieldSizeY; i++) {
             for (int j = 0; j < fieldSizeX; j++) {
@@ -206,5 +190,27 @@ public class Map extends JPanel {
             }
         }
         return true;
+    }
+
+    private boolean checkLine(int x, int y, int vx, int vy, int len, int c) {
+        final int far_x = x + (len - 1) * vx;
+        final int far_y = y + (len - 1) * vy;
+        if (!isValidCell(far_x, far_y)) return false;
+        for (int i = 0; i < len; i++) {
+            if (field[y + i * vy][x + i * vx] != c) return false;
+        }
+        return true;
+    }
+
+    private boolean checkWin(int c) {
+        for (int i = 0; i < fieldSizeX; i++) {
+            for (int j = 0; j < fieldSizeY; j++) {
+                if (checkLine(i, j, 1, 0, winLength, c)) return true;
+                if (checkLine(i, j, 1, 1, winLength, c)) return true;
+                if (checkLine(i, j, 0, 1, winLength, c)) return true;
+                if (checkLine(i, j, 1, -1, winLength, c)) return true;
+            }
+        }
+        return false;
     }
 }
