@@ -1,4 +1,4 @@
-package JDK.Prac_01.XOWindow;
+package JDK.Prac_01_Swing.XOWindow;
 
 import javax.swing.*;
 import java.awt.*;

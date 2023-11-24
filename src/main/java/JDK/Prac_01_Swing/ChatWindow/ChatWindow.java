@@ -1,4 +1,4 @@
-package JDK.Prac_01.ChatWindow;
+package JDK.Prac_01_Swing.ChatWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -82,8 +82,9 @@ public class ChatWindow extends JFrame {
 
     public void writeMessagesFromLog() {
         List<String> messages;
+
         try {
-            messages =  Files.readAllLines(filePath);
+            messages = Files.readAllLines(filePath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -95,7 +96,7 @@ public class ChatWindow extends JFrame {
 
     public void saveMessage() {
         try {
-            Files.writeString(filePath,message, StandardOpenOption.APPEND);
+            Files.writeString(filePath, message, StandardOpenOption.APPEND);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

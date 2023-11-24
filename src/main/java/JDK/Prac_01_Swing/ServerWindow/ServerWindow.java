@@ -1,4 +1,4 @@
-package JDK.Prac_01.ServerWindow;
+package JDK.Prac_01_Swing.ServerWindow;
 
 import javax.swing.*;
 import java.awt.*;
