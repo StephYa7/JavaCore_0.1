@@ -10,6 +10,7 @@ public class Background implements Interactable {
     public static final float AMPLITUDE = 225f / 2f;
     private Color color;
 
+    @Override
     public void update(MainCanvas canvas, float deltaTime) {
         time += deltaTime;
         int red = Math.round(AMPLITUDE + AMPLITUDE * (float) Math.sin(time * 2f));
@@ -18,11 +19,10 @@ public class Background implements Interactable {
         color = new Color(red, green, blue);
     }
 
-    public void render(MainCanvas canvas, Graphics g){
+    @Override
+    public void render(MainCanvas canvas, Graphics g) {
         canvas.setBackground(color);
     }
-
-
 
 
 }

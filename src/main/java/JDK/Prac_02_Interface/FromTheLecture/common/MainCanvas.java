@@ -20,7 +20,7 @@ public class MainCanvas extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         try {
-            Thread.sleep(16);
+            Thread.sleep(8);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

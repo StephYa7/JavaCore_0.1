@@ -93,7 +93,6 @@ public class Map extends JPanel {
         if (checkEndGame(HUMAN_DOT, STATE_WIN_HUMAN)) return;
         aiTurn();
         repaint();
-        if (checkEndGame(AI_DOT, STATE_WIN_AI)) return;
     }
 
 

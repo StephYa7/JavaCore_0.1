@@ -20,6 +20,13 @@ public class Ball extends Sprite {
         vY = 100f + (float) (Math.random() * 200f);
     }
 
+    Ball(int x, int y) {
+        this();
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
     public void update(MainCanvas canvas, float deltaTime) {
         x += vX * deltaTime;
         y += vY * deltaTime;
@@ -41,12 +48,9 @@ public class Ball extends Sprite {
         }
     }
 
+    @Override
     public void render(MainCanvas canvas, Graphics g) {
         g.setColor(color);
-        g.fillOval((int) getLeft(), (int) getTop(), (int) getWidth(), (int) getHeight());
-    }
-    public void renderInvisible(MainCanvas canvas, Graphics g) {
-        g.setColor(null);
         g.fillOval((int) getLeft(), (int) getTop(), (int) getWidth(), (int) getHeight());
     }
 
