@@ -1,4 +1,4 @@
-package javaProfessional.ex_001_Reflection.reflectionModifier;
+package Test.Reflection.ex_001_Reflection.reflectionModifier;
 
 import java.lang.reflect.Modifier;
 

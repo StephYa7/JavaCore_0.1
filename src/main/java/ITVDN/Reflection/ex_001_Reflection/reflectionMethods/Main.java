@@ -1,4 +1,4 @@
-package javaProfessional.ex_001_Reflection.reflectionMethods;
+package Test.Reflection.ex_001_Reflection.reflectionMethods;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -129,5 +129,3 @@ public class Main {
         }
     }
 }
-
-
