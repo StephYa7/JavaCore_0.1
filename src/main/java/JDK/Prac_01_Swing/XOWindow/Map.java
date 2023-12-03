@@ -30,7 +30,7 @@ public class Map extends JPanel {
     private int panelWidth;
     private int panelHeight;
     private int cellHeight;
-    private int cellWeight;
+    private int cellWidth;
 
     private boolean isGameOver;
     private boolean isInitialized;
@@ -85,7 +85,7 @@ public class Map extends JPanel {
 
     private void update(MouseEvent e) {
         if (isGameOver || !isInitialized) return;
-        int cellX = e.getX() / cellWeight;
+        int cellX = e.getX() / cellWidth;
         int cellY = e.getY() / cellHeight;
         if (!isEmptyCell(cellX, cellY) || !isValidCell(cellX, cellY)) return;
         field[cellY][cellX] = HUMAN_DOT;
@@ -93,6 +93,8 @@ public class Map extends JPanel {
         if (checkEndGame(HUMAN_DOT, STATE_WIN_HUMAN)) return;
         aiTurn();
         repaint();
+        if (checkEndGame(AI_DOT, STATE_WIN_AI)) {
+        }
     }
 
 
@@ -126,14 +128,14 @@ public class Map extends JPanel {
         panelWidth = getWidth();
         panelHeight = getHeight();
         cellHeight = panelHeight / fieldSizeX;
-        cellWeight = panelWidth / fieldSizeY;
+        cellWidth = panelWidth / fieldSizeY;
         g.setColor(Color.BLACK);
         for (int h = 0; h < fieldSizeX; h++) {
             int y = h * cellHeight;
             g.drawLine(0, y, panelWidth, y);
         }
         for (int w = 0; w < fieldSizeY; w++) {
-            int x = w * cellWeight;
+            int x = w * cellWidth;
             g.drawLine(x, 0, x, panelHeight);
         }
         for (int y = 0; y < fieldSizeY; y++) {
@@ -141,16 +143,16 @@ public class Map extends JPanel {
                 if (field[y][x] == EMPTY_DOT) continue;
                 if (field[y][x] == HUMAN_DOT) {
                     g.setColor(Color.BLUE);
-                    g.fillOval(x * cellWeight + DOT_PADDING,
+                    g.fillOval(x * cellWidth + DOT_PADDING,
                             y * cellHeight + DOT_PADDING,
-                            cellWeight - DOT_PADDING * 2,
+                            cellWidth - DOT_PADDING * 2,
                             cellHeight - DOT_PADDING * 2);
 
                 } else if (field[y][x] == AI_DOT) {
                     g.setColor(new Color(0xff0000));
-                    g.fillOval(x * cellWeight + DOT_PADDING,
+                    g.fillOval(x * cellWidth + DOT_PADDING,
                             y * cellHeight + DOT_PADDING,
-                            cellWeight - DOT_PADDING * 2,
+                            cellWidth - DOT_PADDING * 2,
                             cellHeight - DOT_PADDING * 2);
                 } else {
                     throw new RuntimeException("Unexpected value " + field[y][x] +
