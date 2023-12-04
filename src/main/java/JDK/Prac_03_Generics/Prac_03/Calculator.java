@@ -6,6 +6,10 @@ public class Calculator {
         if (numbers.length == 1) {
             return (double) numbers[0];
         }
+        return sumAllNumbersInArr(numbers);
+    }
+
+    private static <T extends Number> double sumAllNumbersInArr(T[] numbers) {
         double result = 0;
         for (T number : numbers) {
             result += number.doubleValue();
@@ -18,6 +22,10 @@ public class Calculator {
         if (numbers.length == 1) {
             return (double) numbers[0];
         }
+        return multiplyAllNumbersInArr(numbers);
+    }
+
+    private static <T extends Number> double multiplyAllNumbersInArr(T[] numbers) {
         double result = 1;
         for (T number : numbers) {
             result *= number.doubleValue();
