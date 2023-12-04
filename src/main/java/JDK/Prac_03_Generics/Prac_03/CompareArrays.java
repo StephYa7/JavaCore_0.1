@@ -1,4 +1,4 @@
-package JDK.Prac_03_Generics.Prac_03.TaskInterfacePerson;
+package JDK.Prac_03_Generics.Prac_03;
 
 public class CompareArrays {
     public static <T> boolean compareArrays(T[] firstArrays, T[] secondArrays) {

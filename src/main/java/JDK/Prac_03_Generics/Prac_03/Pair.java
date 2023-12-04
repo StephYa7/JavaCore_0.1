@@ -1,4 +1,4 @@
-package JDK.Prac_03_Generics.Prac_03.TaskInterfacePerson;
+package JDK.Prac_03_Generics.Prac_03;
 
 public class Pair<T, V> {
     private T first;
