@@ -1,4 +1,4 @@
-package Test.Threads;
+package Prac_Vs_ITVDN.Threads;
 
 import java.util.ArrayList;
 import java.util.List;

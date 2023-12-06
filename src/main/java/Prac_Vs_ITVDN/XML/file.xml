@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE catalog [
+        <!ELEMENT catalog (book)*>
+        <!ELEMENT book (title|ptice)*>
+        <!ELEMENT title (#PCDATA)>
+        <!ATTLIST title
+                fontsize CDATA #REQUIRED>
+        <!ELEMENT ptice (#PCDATA)>
+        <!ATTLIST ptice
+                currency CDATA #REQUIRED>
+        ]>
+
+<catalog>
+    <book>
+        <title fontsize="9">Gaga</title>
+        <ptice currency="USD">313</ptice>
+    </book>
+    <book>
+        <title fontsize="9">Think</title>
+        <ptice currency="USD">890</ptice>
+    </book>
+</catalog>

@@ -1,4 +1,4 @@
-package Test.SerializationAndClone;
+package Prac_Vs_ITVDN.SerializationAndClone;
 
 import lombok.Data;
 

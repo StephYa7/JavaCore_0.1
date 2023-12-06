@@ -40,4 +40,6 @@ build/
 /src/main/java/Test/1.xlsx
 /src/main/java/Test/2.xlsx
 /src/main/java/Test/3.xlsx
-/src/main/java/Test/SerializationAndClone/saveObject.txt
+/src/main/java/Prac_Vs_ITVDN/SerializationAndClone/saveObject.txt
+/src/main/java/Prac_Vs_ITVDN/XML/file.xml
+/src/main/java/Prac_Vs_ITVDN/XML/file2.xsd
