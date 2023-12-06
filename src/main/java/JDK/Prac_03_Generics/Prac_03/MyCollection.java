@@ -1,8 +1,6 @@
 package JDK.Prac_03_Generics.Prac_03;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 public class MyCollection<V> implements Iterable<V> {
     private Object[] array;
@@ -90,6 +88,7 @@ public class MyCollection<V> implements Iterable<V> {
         for (Number number : a2) {
             System.out.println(number);
         }
+        List<String> a = new ArrayList<String>();
 
 
     }
@@ -150,7 +149,7 @@ class MyArrayIterator<V> implements Iterator<V> {
 
     @Override
     public V next() {
-        if(!hasNext())
+        if (!hasNext())
             throw new NoSuchElementException();
         return arrayIterator[index++];
     }
