@@ -6,8 +6,8 @@
         <title fontsize="9">Gaga</title>
         <ptice currency="USD">313</ptice>
     </book>
-    <book1>
+    <book>
         <title fontsize="9">Think</title>
         <ptice currency="USD">890</ptice>
-    </book1>
+    </book>
 </catalog>
