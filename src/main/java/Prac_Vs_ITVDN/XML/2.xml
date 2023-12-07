@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <book>
+        <author>Bruce Eckel</author>
+        <title>Thinking In Java 4th Edition</title>
+        <genre>Computer</genre>
+        <price currency="USA">40</price>
+        <publish_date>2018-02-02</publish_date>
+    </book>
+    <book1>
+        <author>Robert Lafore</author>
+        <title>Data Structures and Algorithms</title>
+        <genre>Computer</genre>
+        <price>30</price>
+        <publish_date>2018-01-01</publish_date>
+    </book1>
+</catalog>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://itvdn.com"
+           xmlns="http://itvdn.com">
+    <xs:element name="catalog" type="catalogType">
+        <xs:annotation>
+            <xs:documentation>
+                <![CDATA[DTD = Document Type Definition <!DOCTYPE catalog [<!ELEMENT catalog (book)*><!ELEMENT book (author|title|genre|price|publish_date)*><!ELEMENT author (#PCDATA)><!ELEMENT title (#PCDATA)><!ELEMENT genre (#PCDATA)><!ELEMENT price (#PCDATA)><!ATTLIST pricecurrency CDATA #IMPLIED><!ELEMENT publish_date (#PCDATA)>]> XSD = XML Schema definition language W3C]]>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="catalogType">
+        <xs:sequence>
+            <xs:element type="bookType" name="book" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="priceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="currency" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="bookType">
+        <xs:choice>
+            <xs:element name="author">
+                <xs:annotation>
+                    <xs:documentation><![CDATA[&lt;   -   <
+            &gt;   -   >
+            &amp;  -   &    AC&DC
+            &apos; -   '
+            &quot; -   "
+            &nbsp;
+         <h1>HELLo</h1>]]></xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[a-zA-Z][a-zA-Z][a-zA-Z]"/>
+                        <xs:pattern value="([a-zA-Z])+"/>
+                        <xs:pattern value="[a-zA-Z]{7}"/>
+                        <xs:pattern value="male|female"/>
+                        <xs:enumeration value=" &lt;Bruce> Eckel"/>
+                        <xs:enumeration value="Robert Lafore"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="title">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Thinking In Java 4th Edition"/>
+                        <xs:enumeration value="Data Structures and Algorithms"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="xs:string" name="genre"/>
+            <xs:element type="priceType" name="price"/>
+            <xs:element name="publish_date">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="2018-02-02"/>
+                        <xs:enumeration value="2018-01-01"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:choice>
+    </xs:complexType>
+</xs:schema>
