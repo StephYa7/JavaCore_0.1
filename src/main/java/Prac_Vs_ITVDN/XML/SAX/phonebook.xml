@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phonebook>
+    <person>
+        <name>Green</name>
+        <email>javaSE@java.com</email>
+        <telephone>222-22-222</telephone>
+        <web>www.oracle.com</web>
+    </person>
+    <person>
+        <name>Crys</name>
+        <email>javaEE@java.com</email>
+        <telephone>333-33-333</telephone>
+        <web>www.oracle.com</web>
+    </person>
+    <person>
+        <name>Duke</name>
+        <email>javaME@java.com</email>
+        <telephone>444-44-444</telephone>
+        <web>www.oracle.com</web>
+    </person>
+</phonebook>

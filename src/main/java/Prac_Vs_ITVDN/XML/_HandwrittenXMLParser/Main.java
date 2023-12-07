@@ -1,4 +1,4 @@
-package Prac_Vs_ITVDN.XML.HandwrittenXMLParser;
+package Prac_Vs_ITVDN.XML._HandwrittenXMLParser;
 
 
 public class Main {
