@@ -1,4 +1,4 @@
-package Prac_Vs_ITVDN.XML;
+package Prac_Vs_ITVDN.XML.HandwrittenXMLParser;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -6,6 +6,10 @@ import java.io.UnsupportedEncodingException;
 
 public class XMLParser {
     private String xml;
+
+    public String getXml() {
+        return xml;
+    }
 
     public XMLParser(String path) {
         byte[] buf = null;
@@ -25,9 +29,9 @@ public class XMLParser {
 
 
     // Метод определения "catalog/book/author"
-    public String get(String path) {
+    public String get(String inputTeg) {
         // Разбиваем /
-        String[] parts = path.split("/");
+        String[] parts = inputTeg.split("/");
         String s_xml = xml;
 
         for (String s : parts) {
