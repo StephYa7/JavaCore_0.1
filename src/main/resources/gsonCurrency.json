@@ -1,26 +1,38 @@
-[
-  {
-    "ccy": "USD",
-    "base_ccy": "UAH",
-    "buy": 28.10000,
-    "sale": 28.35000
-  },
-  {
-    "ccy": "EUR",
-    "base_ccy": "UAH",
-    "buy": 32.45000,
-    "sale": 33.00000
-  },
-  {
-    "ccy": "RUR",
-    "base_ccy": "UAH",
-    "buy": 0.39500,
-    "sale": 0.42000
-  },
-  {
-    "ccy": "BTC",
-    "base_ccy": "USD",
-    "buy": 6062.0985,
-    "sale": 6700.2141
+{
+  "Date": "2023-12-08T11:30:00+03:00",
+  "PreviousDate": "2023-12-07T11:30:00+03:00",
+  "PreviousURL": "//www.cbr-xml-daily.ru/archive/2023/12/07/daily_json.js",
+  "Timestamp": "2023-12-07T20:00:00+03:00",
+  "Valute": {
+    "GBP": {
+      "ID": "R01035",
+      "NumCode": "826",
+      "CharCode": "GBP",
+      "Nominal": "1",
+      "Name": "Фунт стерлингов Соединенного королевства",
+      "Value": "116.5676",
+      "Previous": "117.0267"
+    },
+    "BYN": {
+      "ID": "R01090B",
+      "NumCode": "933",
+      "CharCode": "BYN",
+      "Nominal": "1",
+      "Name": "Белорусский рубль",
+      "Value": "28.747",
+      "Previous": "28.7885"
+    },
+    "EUR": {
+      "ID": "R01239",
+      "NumCode": "978",
+      "CharCode": "EUR",
+      "Nominal": "1",
+      "Name": "Евро",
+      "Value": "99.8131",
+      "Previous": "100.1353"
+    }
   }
-]
+}evious": "38.7385"
+    }
+  }
+}

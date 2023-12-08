@@ -1,0 +1,26 @@
+{
+  "Date": "2023-12-08T11:30:00+03:00",
+  "PreviousDate": "2023-12-07T11:30:00+03:00",
+  "PreviousURL": "\/\/www.cbr-xml-daily.ru\/archive\/2023\/12\/07\/daily_json.js",
+  "Timestamp": "2023-12-07T20:00:00+03:00",
+  "Valute": {
+    "AUD": {
+      "ID": "R01010",
+      "NumCode": "036",
+      "CharCode": "AUD",
+      "Nominal": 1,
+      "Name": "Австралийский доллар",
+      "Value": 60.4359,
+      "Previous": 61.0602
+    },
+    "JPY": {
+      "ID": "R01820",
+      "NumCode": "392",
+      "CharCode": "JPY",
+      "Nominal": 100,
+      "Name": "Японских иен",
+      "Value": 63.401,
+      "Previous": 63.0359
+    }
+  }
+}

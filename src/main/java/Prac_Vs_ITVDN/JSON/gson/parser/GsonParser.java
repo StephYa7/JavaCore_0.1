@@ -22,15 +22,14 @@ public class GsonParser {
 
         JsonReader jsonReader = new JsonReader(new InputStreamReader(new URL(url).openStream()));
 
-        CurrencyRate[] currencyRates = gson.fromJson(jsonReader, CurrencyRate[].class);
+        CurrencyRate currencyRates = gson.fromJson(jsonReader, CurrencyRate.class);
 
-        for (CurrencyRate currencyRate : currencyRates) {
-            System.out.println(currencyRate);
-        }
+            System.out.println(currencyRates);
+
 
         String gsonString = gson.toJson(currencyRates);
 
-        Files.write(Paths.get("D:\\Java Professional Course_video\\011_JSON\\011_Samples\\src\\main\\resources\\gsonCurrency.json"),
+        Files.write(Paths.get("D:\\PR\\Java\\JavaCore_0.1\\src\\main\\resources\\gsonCurrency.json"),
                     gsonString.getBytes(), StandardOpenOption.CREATE);
     }
 }

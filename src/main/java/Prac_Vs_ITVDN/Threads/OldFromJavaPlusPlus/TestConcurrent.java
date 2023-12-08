@@ -1,4 +1,4 @@
-package Prac_Vs_ITVDN.Threads;
+package Prac_Vs_ITVDN.Threads.OldFromJavaPlusPlus;
 
 import java.util.Scanner;
 

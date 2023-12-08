@@ -5,11 +5,8 @@ import Prac_Vs_ITVDN.JSON.gson.parser.GsonParser;
 
 import java.io.IOException;
 
-/**
- * Created by Yevhenii Tykhonov.
- */
-public class Main {
+public class MainGson {
     public static void main(String[] args) throws IOException {
-        GsonParser.parseJson("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5");
+        GsonParser.parseJson("https://www.cbr-xml-daily.ru/daily_json.js");
     }
 }
