@@ -56,17 +56,17 @@ public class TaskFromPracPresentation {
 
         System.out.println("--------------------------------");
 
-        Map<Long, String> phoneBook = new HashMap<>();
+        Map<String, String> phoneBook = new HashMap<>();
         for (int i = 0; i < 10; i++) {
             Long phone = (long) (Math.random() * 1000000000L) + 89000000000L;
             String name = MakeRandomString.makeRandomSequenceString(2, 6);
             System.out.println(phone + " " + name);
-            phoneBook.put(phone, name);
+            phoneBook.put(phone.toString(), name);
         }
-        System.out.println(phoneBook.entrySet().stream()
-                .min(Map.Entry.comparingByKey())
-                .get()
-                .getValue() + " minimal phone number");
+        System.out.println(phoneBook.keySet().stream()
+//                .min((a, b) -> (Long.compare(Long.parseLong(a),Long.parseLong(b))))
+                .min(Comparator.comparingLong(Long::parseLong))
+                .get() + " minimal phone number");
         System.out.println(phoneBook.entrySet().stream()
                 .max(Map.Entry.comparingByValue())
                 .get()
