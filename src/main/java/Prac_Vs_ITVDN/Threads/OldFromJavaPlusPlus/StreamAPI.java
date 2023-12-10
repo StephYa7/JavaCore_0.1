@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MyThreadStreamAPI extends Thread {
+public class StreamAPI extends Thread {
     public static void main(String[] args) throws InterruptedException {
 
         List<Integer> integers = Arrays.asList
@@ -18,5 +18,7 @@ public class MyThreadStreamAPI extends Thread {
                 .map(i -> "Number " + i)
                 .collect(Collectors.toList());
         System.out.println(result);
+
+        result.stream().sorted(String::compareTo).forEach(System.out::println);
     }
 }

@@ -4,7 +4,7 @@
     <files>
       <node color="8" path="$PROJECT_DIR$" />
       <node color="8" path="$PROJECT_DIR$/src" />
-      <node color="7" path="$PROJECT_DIR$/src/main/java/JavaCore" />
+      <node color="5" path="$PROJECT_DIR$/src/main/java/JavaCore" />
       <node color="7" path="$PROJECT_DIR$/src/main/java/JDK" />
       <node color="4" path="$PROJECT_DIR$/src/main/java/Prac_Vs_ITVDN" />
       <node color="3" path="$PROJECT_DIR$/src/main/java/Prac_Vs_ITVDN/Threads/EmptyPackage" />
