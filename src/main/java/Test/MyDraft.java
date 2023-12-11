@@ -1,95 +1,71 @@
 package Test;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class MyDraft {
+    private static Lock lock = new ReentrantLock();
+    private static Condition condition = lock.newCondition();
+    private static int currentThread = 1;
 
     public static void main(String[] args) {
-        var wtf = "r̶".toCharArray();
-        for (char c : wtf) {
-            System.out.println((int)c);
-        }
-        System.out.println("--------------------------------");
+        Thread thread1 = new MyThread("1", 1);
+        Thread thread2 = new MyThread("2", 2);
+        Thread thread3 = new MyThread("3", 3);
+        Thread thread4 = new MyThread("4", 4);
+        Thread thread5 = new MyThread("5", 5);
+        Thread thread6 = new MyThread("6", 6);
+        Thread thread7 = new MyThread("7", 7);
+        Thread thread8 = new MyThread("8", 8);
+        Thread thread9 = new MyThread("9", 9);
+    }
+}
 
-        System.out.println("r̶".getBytes() + "  это");
-        List<String> a1 = new ArrayList<>();
-        List<String> a2 = new ArrayList<>();
-        List<String> a3 = new ArrayList<>();
-        List<Integer> a4 = new ArrayList<>();
+class MyThread extends Thread {
+    private static Lock lock = new ReentrantLock();
+    private static Condition condition = lock.newCondition();
+    private static int currentThread = 1;
+    private static int maxThread;
+    private String inputString;
+    private int numberOfThreads;
 
-        a1.add("123");
-        a1.add("12");
-        a2.add("321");
-        a3.add("132");
-        a3.add("132");
+    public MyThread(String inputString, int numberOfThreads) {
+        this.inputString = inputString;
+        this.numberOfThreads = numberOfThreads;
+        this.maxThread = numberOfThreads;
+        start();
+    }
 
-
-        List<String>[] all = new List[]{a1, a2, a3, a4};
-
-        all[1].add("1");
-
-        System.out.println(Arrays.toString(all));
-
-
-        Pair pair = new Pair("321", "12");
-        Pair pair2 = new Pair(321, "12");
-
-
-        Pair<String, String>[] array = new Pair[3];
-
-        Pair[] pairs = new Pair[3];
-
-        pairs[1] = pair2;
-
-        System.out.println(Arrays.toString(pairs));
-
-        var a = makeHeapPollution();
-        System.out.println(a);
-
-        List numbers = new ArrayList<Integer>();
-        Collections.addAll(numbers, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
-
-
-        try {
-            List<String> strings = numbers;
-            StringBuffer buffer = new StringBuffer();
-            System.out.println(strings);
-//            System.out.println("che 1");
-            for (var string : strings) {
-                buffer.append(string);
-                System.out.println(buffer);
-//                System.out.println("che 2");
+    @Override
+    public void run() {
+        System.out.print(inputString);
+        while (true) {
+            try {
+                lock.lock();
+                if (numberOfThreads != maxThread) {
+                    while (currentThread != numberOfThreads - 1) {
+                        condition.await();
+                    }
+                } else {
+                    while (currentThread != 1) {
+                        condition.await();
+                    }
+                }
+                System.out.print(inputString);
+                Thread.sleep(500);
+                if (currentThread != maxThread) {
+                    currentThread++;
+                }
+                else {
+                    currentThread = 1;
+                }
+                condition.signalAll();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock();
             }
-        } catch (Exception e) {
-            System.out.println("What?");
         }
-//        System.out.println("che 3");
-
-
     }
-
-    static List<String> makeHeapPollution() {
-        List numbers = new ArrayList<Number>();
-        numbers.add(1);
-        List<String> strings = numbers;
-        strings.add("");
-        return strings;
-    }
-
-
-    @Data
-    @AllArgsConstructor
-    static class Pair<T, E> {
-        public T t;
-        public E e;
-
-
-    }
-
 }
