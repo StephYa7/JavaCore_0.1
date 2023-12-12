@@ -1,4 +1,4 @@
-package JDK.Prac_04_Collections;
+package JDK.Prac_04_CollectionsAndServer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
