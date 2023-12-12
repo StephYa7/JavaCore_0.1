@@ -45,11 +45,11 @@ class RunningHuman extends Thread {
 
             System.out.println(name + " готовится");
             Thread.sleep((long) (Math.random() * 3000));
-            rdyToStart.countDown();
             System.out.println(name + " на старте");
+            rdyToStart.countDown();
             startSignal.await();
             System.out.println(name + " побежал");
-            Thread.sleep((long) (Math.random() * 3000));
+            Thread.sleep((long) (Math.random() * 5000));
             System.out.println(name + " финишировал");
             finishSignal.countDown();
         } catch (InterruptedException e) {
