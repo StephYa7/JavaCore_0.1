@@ -1,9 +1,6 @@
 package JDK.Prac_05_Threads;
 
-import lombok.Data;
-
-import java.util.Arrays;
-
+/*
 public class TheDiningPhilosophersProblem {
     static Object[] philosopher = new Object[]{0, "|", 0, "|", 0, "|", 0, "|", 0, "|"};
 
@@ -59,4 +56,4 @@ public class TheDiningPhilosophersProblem {
             }
         }
     }
-}
+}*/
