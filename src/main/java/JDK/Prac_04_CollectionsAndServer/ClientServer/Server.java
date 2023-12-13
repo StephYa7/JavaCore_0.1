@@ -11,19 +11,23 @@ public class Server {
                 ServerSocket server = new ServerSocket(8000);
         ) {
             System.out.println("Server started");
-            while (true)
-                try (Phone phone = new Phone(server);
-                ) {
-
+            while (true) {
+                Phone phone = new Phone(server);
+                new Thread(() -> {
                     String request = phone.readLine();
                     DecimalFormat decimalFormat = new DecimalFormat("+#;-#");
                     int temperature = (int) (Math.random() * 70 - 40);
                     String response = String.format("In %s %s°C ", request, decimalFormat.format(temperature));
-                    System.out.println(response);
-                    phone.writeLine(response);
-                } catch (NullPointerException e) {
-                    e.printStackTrace();
-                }
+                    try {
+                        Thread.sleep(3000);
+                        phone.writeLine(response);
+                        System.out.println(response);
+                        phone.close();
+                    } catch (IOException | InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).start();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
