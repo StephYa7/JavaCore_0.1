@@ -1,70 +1,64 @@
 package Test;
 
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MyDraft {
-    private static Lock lock = new ReentrantLock();
-    private static Condition condition = lock.newCondition();
-    private static int currentThread = 1;
-
     public static void main(String[] args) {
-        Thread thread1 = new MyThread("1", 1);
-        Thread thread2 = new MyThread("2", 2);
-        Thread thread3 = new MyThread("3", 3);
-        Thread thread4 = new MyThread("4", 4);
-        Thread thread5 = new MyThread("5", 5);
-        Thread thread6 = new MyThread("6", 6);
-        Thread thread7 = new MyThread("7", 7);
-        Thread thread8 = new MyThread("8", 8);
-        Thread thread9 = new MyThread("9", 9);
+        String fileUrl = "https://cdn.iportal.ru/preview/news/articles/2d71a5f9f25cff20b35349377dfcc93b0bc9d888_666_444_c.jpg"; // Замените URL на нужный вам файл
+        int numThreads = 1; // Количество потоков для загрузки
+
+        ExecutorService executor = Executors.newFixedThreadPool(numThreads);
+
+        try {
+            URL url = new URL(fileUrl);
+            InputStream inputStream = url.openStream();
+
+            String fileName = url.getFile().substring(url.getFile().lastIndexOf('/') + 1);
+            FileOutputStream outputStream = new FileOutputStream(fileName);
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                executor.execute(new DownloadTask(outputStream, buffer, bytesRead));
+            }
+
+            executor.shutdown();
+            while (!executor.isTerminated()) {
+                // Ждем завершения всех потоков
+            }
+
+            outputStream.close();
+            inputStream.close();
+
+            System.out.println("Файл успешно загружен.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-}
 
-class MyThread extends Thread {
-    private static Lock lock = new ReentrantLock();
-    private static Condition condition = lock.newCondition();
-    private static int currentThread = 1;
-    private static int maxThread;
-    private String inputString;
-    private int numberOfThreads;
+    static class DownloadTask implements Runnable {
+        private final FileOutputStream outputStream;
+        private final byte[] buffer;
+        private final int bytesRead;
 
-    public MyThread(String inputString, int numberOfThreads) {
-        this.inputString = inputString;
-        this.numberOfThreads = numberOfThreads;
-        this.maxThread = numberOfThreads;
-        start();
-    }
+        public DownloadTask(FileOutputStream outputStream, byte[] buffer, int bytesRead) {
+            this.outputStream = outputStream;
+            this.buffer = buffer;
+            this.bytesRead = bytesRead;
+        }
 
-    @Override
-    public void run() {
-        System.out.print(inputString);
-        while (true) {
+        @Override
+        public void run() {
             try {
-                lock.lock();
-                if (numberOfThreads != maxThread) {
-                    while (currentThread != numberOfThreads - 1) {
-                        condition.await();
-                    }
-                } else {
-                    while (currentThread != 1) {
-                        condition.await();
-                    }
-                }
-                System.out.print(inputString);
-                Thread.sleep(500);
-                if (currentThread != maxThread) {
-                    currentThread++;
-                }
-                else {
-                    currentThread = 1;
-                }
-                condition.signalAll();
-            } catch (InterruptedException e) {
+                outputStream.write(buffer, 0, bytesRead);
+            } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                lock.unlock();
             }
         }
     }

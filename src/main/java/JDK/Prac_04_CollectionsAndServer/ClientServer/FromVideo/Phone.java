@@ -1,4 +1,4 @@
-package JDK.Prac_04_CollectionsAndServer.ClientServer;
+package JDK.Prac_04_CollectionsAndServer.ClientServer.FromVideo;
 
 import lombok.Data;
 
