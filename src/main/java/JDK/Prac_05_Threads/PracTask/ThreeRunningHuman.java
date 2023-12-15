@@ -20,8 +20,6 @@ public class ThreeRunningHuman {
         System.out.println("Марш!");
         finishSignal.await();
         System.out.println("Гонка завершена");
-
-
     }
 }
 
@@ -42,7 +40,6 @@ class RunningHuman extends Thread {
     @Override
     public void run() {
         try {
-
             System.out.println(name + " готовится");
             Thread.sleep((long) (Math.random() * 3000));
             System.out.println(name + " на старте");

@@ -3,7 +3,6 @@ package JDK.Prac_05_Threads.PracTask;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Switcher { //Зачем тут атомик интеджер???
-
     static Boolean switcher;
     static volatile AtomicInteger count;
 
@@ -13,8 +12,7 @@ public class Switcher { //Зачем тут атомик интеджер???
 
         Thread A = new Thread(() -> {
             while (count.get() > 0) {
-                if (switcher) switcher = false;
-                else switcher = true;
+                switcher = !switcher;
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {

@@ -1,65 +1,50 @@
 package Test;
 
+import java.util.concurrent.atomic.AtomicInteger;
 
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+class MyDraft {
+    public static int aa = 0;
 
-public class MyDraft {
-    public static void main(String[] args) {
-        String fileUrl = "https://cdn.iportal.ru/preview/news/articles/2d71a5f9f25cff20b35349377dfcc93b0bc9d888_666_444_c.jpg"; // Замените URL на нужный вам файл
-        int numThreads = 1; // Количество потоков для загрузки
+    public static void main(String args[]) throws InterruptedException {
+        AtomicInteger atomicInteger = new AtomicInteger(0);
 
-        ExecutorService executor = Executors.newFixedThreadPool(numThreads);
 
-        try {
-            URL url = new URL(fileUrl);
-            InputStream inputStream = url.openStream();
-
-            String fileName = url.getFile().substring(url.getFile().lastIndexOf('/') + 1);
-            FileOutputStream outputStream = new FileOutputStream(fileName);
-
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-
-            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                executor.execute(new DownloadTask(outputStream, buffer, bytesRead));
+//        ExecutorService executor = Executors.newFixedThreadPool(10);
+//
+//        IntStream.range(0, 50000).forEach(i -> {
+//            aa++;
+//            Thread task = new Thread(() ->
+//                    atomicInteger.updateAndGet(n -> n + 2));
+//            executor.submit(task);
+//        });
+//        executor.shutdown();
+//        executor.isTerminated();
+//        System.out.println(aa + "int");
+        System.out.println(atomicInteger.get());
+        Thread t = new Thread(() -> {
+            for (int i = 0; i < 50000; i++) {
+                aa++;
+                atomicInteger.incrementAndGet();
             }
-
-            executor.shutdown();
-            while (!executor.isTerminated()) {
-                // Ждем завершения всех потоков
+        });
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 50000; i++) {
+                aa++;
+                atomicInteger.incrementAndGet();
             }
-
-            outputStream.close();
-            inputStream.close();
-
-            System.out.println("Файл успешно загружен.");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    static class DownloadTask implements Runnable {
-        private final FileOutputStream outputStream;
-        private final byte[] buffer;
-        private final int bytesRead;
-
-        public DownloadTask(FileOutputStream outputStream, byte[] buffer, int bytesRead) {
-            this.outputStream = outputStream;
-            this.buffer = buffer;
-            this.bytesRead = bytesRead;
-        }
-
-        @Override
-        public void run() {
-            try {
-                outputStream.write(buffer, 0, bytesRead);
-            } catch (Exception e) {
-                e.printStackTrace();
+        });
+        Thread t3 = new Thread(() -> {
+            for (int i = 0; i < 50000; i++) {
+                aa++;
+                atomicInteger.incrementAndGet();
             }
-        }
+        });
+        t.start();
+        t2.start();
+        t3.start();
+        System.out.println(t.isDaemon());
+//        Thread.sleep(1000);
+        System.out.println(atomicInteger.get());
+        System.out.println(aa);
     }
 }

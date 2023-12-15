@@ -10,7 +10,7 @@ public class DeadBlock {
                     synchronized (lockSecond) {
                         System.out.print("1");
                         try {
-                            Thread.sleep(100);
+                            Thread.sleep(111);
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
@@ -24,7 +24,7 @@ public class DeadBlock {
                     synchronized (lockFirst) {
                         System.out.print("2");
                         try {
-                            Thread.sleep(100);
+                            Thread.sleep(111);
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
