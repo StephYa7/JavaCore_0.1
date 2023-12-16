@@ -1,6 +1,5 @@
-package ForJUnitPrac;
+package ForJUnitPrac._01_Prac;
 
-import JUint._01_.Sqr;
 import lombok.Data;
 
 import java.text.DateFormat;

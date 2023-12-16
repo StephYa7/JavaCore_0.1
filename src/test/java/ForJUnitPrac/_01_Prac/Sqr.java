@@ -1,4 +1,4 @@
-package JUint._01_;
+package ForJUnitPrac._01_Prac;
 
 
 import org.apache.commons.math3.exception.ZeroException;
