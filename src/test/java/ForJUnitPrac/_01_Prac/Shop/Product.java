@@ -1,8 +1,8 @@
 package ForJUnitPrac._01_Prac.Shop;
 
 public class Product {
-    private Integer cost; // Стоимость продукта
-    private String title; // Название
+    private Integer cost;
+    private String title;
 
     // Геттеры, сеттеры:
     public int getCost() {
