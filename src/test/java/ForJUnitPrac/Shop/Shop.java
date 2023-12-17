@@ -1,4 +1,4 @@
-package ForJUnitPrac._01_Prac.Shop;
+package ForJUnitPrac.Shop;
 
 import java.util.Comparator;
 import java.util.List;

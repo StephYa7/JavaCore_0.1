@@ -1,7 +1,4 @@
-package ForJUnitPrac._01_Prac.Calculator;
-
-import ForJUnitPrac._01_Prac.Sqr;
-import org.assertj.core.api.Assertions;
+package ForJUnitPrac.Calculator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;

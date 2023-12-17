@@ -1,4 +1,4 @@
-package ForJUnitPrac._01_Prac.Calculator;
+package ForJUnitPrac.Calculator;
 
 public class Calculator {
     public static int calculation(int firstOperand, int secondOperand, char operator) {
@@ -41,7 +41,16 @@ public class Calculator {
         return result;
     }
 
+    public static double exponentiate(double number, int power) {
+        if (number == 1 || power == 0) return 1;
+        if (power == 1) return number;
+        double result = number;
+        for (int i = 1; i < power; i++) {
+            result *= number;
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
-        System.out.println(calculatingDiscount(99, 10));
     }
 }

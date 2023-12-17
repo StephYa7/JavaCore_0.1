@@ -1,4 +1,4 @@
-package ForJUnitPrac._01_Prac.Shop;
+package ForJUnitPrac.Shop;
 
 public class Product {
     private Integer cost;

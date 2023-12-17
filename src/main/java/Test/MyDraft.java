@@ -1,6 +1,5 @@
 package Test;
 
-import java.util.Arrays;
 import java.util.Random;
 
 class MyDraft {
@@ -18,7 +17,7 @@ class MyDraft {
 
         }
 
-        double result = win/(win +lose)*100;
+        double result = win / (win + lose) * 100;
         System.out.println(result);
 
 
