@@ -1,9 +1,33 @@
 package Test;
 
+import java.util.Arrays;
+import java.util.Random;
+
 class MyDraft {
-    public static int aa = 0;
+    public static void main(String[] arg) {
 
-    public static void main(String args[]) throws InterruptedException {
 
+        double win = 0;
+        double lose = 0;
+        for (int i = 0; i < 5000; i++) {
+            boolean[] doors = createMontyHallDoors();
+            int choice = new Random().nextInt(3);
+//            if (doors[choice]) win++;
+//            else lose++;
+
+
+        }
+
+        double result = win/(win +lose)*100;
+        System.out.println(result);
+
+
+    }
+
+    private static boolean[] createMontyHallDoors() {
+        boolean[] threeDoors = {false, false, false};
+        int carIndex = new Random().nextInt(3);
+        threeDoors[carIndex] = true;
+        return threeDoors;
     }
 }
