@@ -14,8 +14,8 @@ public class TheDiningPhilosophersProblem {
         Philosopher philosopher3 = new Philosopher(3, 4, 5);
         Philosopher philosopher4 = new Philosopher(5, 6, 7);
         Philosopher philosopher5 = new Philosopher(7, 8, 9);
-        for (int i = 0; i < 100; i++) {
-            sleep(105);
+        for (int i = 0; i < 15; i++) {
+            sleep(499);
             System.out.println(Arrays.toString(philosophers)
                     + philosopher1 + " " + philosopher2 + " " + philosopher3 + " " + philosopher4 + " " + philosopher5);
         }
@@ -60,7 +60,7 @@ public class TheDiningPhilosophersProblem {
                     }
                 }
                 if (leftForkInHand == true && rightForkInHand == true) {
-                    TheDiningPhilosophersProblem.sleep(100);
+                    TheDiningPhilosophersProblem.sleep(500);
                     synchronized (lock) {
                         count++;
                         philosophers[indexOfPhilosopher] = count;
@@ -71,7 +71,7 @@ public class TheDiningPhilosophersProblem {
                         if (count > maxCount) maxCount = count;
                     }
                     if (count == maxCount) {
-                        TheDiningPhilosophersProblem.sleep(105);
+                        TheDiningPhilosophersProblem.sleep(20);
                     }
                 }
             }

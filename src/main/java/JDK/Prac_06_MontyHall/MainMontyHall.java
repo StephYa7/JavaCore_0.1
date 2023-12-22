@@ -7,11 +7,9 @@ import java.util.Random;
 
 public class MainMontyHall {
     public static void main(String[] arg) {
-        double win = 0;
-        double winAfterShift = 0;
-        double lose = 0;
-        double loseAfterShift = 0;
-        for (int i = 0; i < 100; i++) {
+        double win = 0, winAfterShift = 0, lose = 0, loseAfterShift = 0;
+
+        for (int i = 0; i < 10; i++) {
             List<String> doors = createMontyHallDoors();
             int choice = new Random().nextInt(3);
             if (doors.get(choice).equals("car")) {
@@ -22,12 +20,11 @@ public class MainMontyHall {
             if (doors.contains("car")) {   // дверей любую за которой есть козел,
                 winAfterShift++;          // это та дверь которую нам открывает ведущий
             } else loseAfterShift++;     // перед предложением изменить выбор.
-
-
         }
+
         double result = win / (win + lose) * 100;
         double resultAfterShift = winAfterShift / (winAfterShift + loseAfterShift) * 100;
-        System.out.println(result);
+
         System.out.printf("Процент побед, без смены выбора - %f%%\n", result);
         System.out.printf("Процент побед, при смене выбора - %s%%", resultAfterShift);
     }
@@ -39,6 +36,4 @@ public class MainMontyHall {
         threeDoors.set(carIndex, "car");
         return threeDoors;
     }
-
-
 }
