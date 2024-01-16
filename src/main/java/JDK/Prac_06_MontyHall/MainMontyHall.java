@@ -9,7 +9,7 @@ public class MainMontyHall {
     public static void main(String[] arg) {
         double win = 0, winAfterShift = 0, lose = 0, loseAfterShift = 0;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             List<String> doors = createMontyHallDoors();
             int choice = new Random().nextInt(3);
             if (doors.get(choice).equals("car")) {
